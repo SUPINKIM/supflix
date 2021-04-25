@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.js": "/supflix/static/js/main.34ba9410.chunk.js",
+    "main.js.map": "/supflix/static/js/main.34ba9410.chunk.js.map",
+    "runtime-main.js": "/supflix/static/js/runtime-main.4db81b0c.js",
+    "runtime-main.js.map": "/supflix/static/js/runtime-main.4db81b0c.js.map",
+    "static/js/2.39c26b37.chunk.js": "/supflix/static/js/2.39c26b37.chunk.js",
+    "static/js/2.39c26b37.chunk.js.map": "/supflix/static/js/2.39c26b37.chunk.js.map",
+    "index.html": "/supflix/index.html",
+    "static/js/2.39c26b37.chunk.js.LICENSE.txt": "/supflix/static/js/2.39c26b37.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.4db81b0c.js",
+    "static/js/2.39c26b37.chunk.js",
+    "static/js/main.34ba9410.chunk.js"
+  ]
+}
