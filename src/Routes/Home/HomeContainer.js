@@ -1,13 +1,15 @@
 import { moviesApi } from 'API';
 import React from 'react';
-import HomePresenter from './HomePresenter';
+import Selection from 'components/Selection';
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default class extends React.Component {
   state = {
+    titles: ['Playing Now', 'Upcoming soon', 'Popluar', 'Top Rated'],
     nowPlaying: null,
     upcoming: null,
     popular: null,
+    topRated: null,
     loading: true,
     error: null,
   };
@@ -23,8 +25,11 @@ export default class extends React.Component {
       const {
         data: { results: popular },
       } = await moviesApi.popular();
+      const {
+        data: { results: topRated },
+      } = await moviesApi.topRated();
 
-      this.setState({ nowPlaying, upcoming, popular });
+      this.setState({ nowPlaying, upcoming, popular, topRated });
     } catch {
       this.setState({
         error:
@@ -38,14 +43,25 @@ export default class extends React.Component {
   }
 
   render() {
-    const { nowPlaying, upcoming, popular, loading, error } = this.state;
+    const {
+      titles,
+      nowPlaying,
+      upcoming,
+      popular,
+      topRated,
+      loading,
+      error,
+    } = this.state;
     return (
-      <HomePresenter
+      <Selection
+        titles={titles}
         nowPlaying={nowPlaying}
         upcoming={upcoming}
         popular={popular}
+        topRated={topRated}
         error={error}
         loading={loading}
+        isHome={true}
       />
     );
   }

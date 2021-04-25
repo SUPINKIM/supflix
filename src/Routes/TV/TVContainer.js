@@ -1,10 +1,11 @@
 import { tvApi } from 'API';
 import React from 'react';
-import TVPresenter from './TVPresenter';
+import Selection from 'components/Selection';
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default class extends React.Component {
   state = {
+    titles: ['Popluar', 'Top Rated', 'Airing Today'],
     topRated: null,
     popular: null,
     airingToday: null,
@@ -38,14 +39,23 @@ export default class extends React.Component {
   }
 
   render() {
-    const { topRated, popular, airingToday, loading, error } = this.state;
+    const {
+      titles,
+      topRated,
+      popular,
+      airingToday,
+      loading,
+      error,
+    } = this.state;
     return (
-      <TVPresenter
+      <Selection
+        titles={titles}
         topRated={topRated}
         popular={popular}
         airingToday={airingToday}
         error={error}
         loading={loading}
+        isHome={false}
       />
     );
   }

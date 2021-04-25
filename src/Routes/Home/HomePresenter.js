@@ -11,7 +11,7 @@ const Container = styled.div`
   padding: 20px;
 `;
 
-const HomePresenter = ({ nowPlaying, upcoming, popular, loading, error }) => (
+const HomePresenter = ({ title, category, loading, error }) => (
   <>
     <Helmet>
       <title>Movies | Supflix</title>
@@ -20,39 +20,9 @@ const HomePresenter = ({ nowPlaying, upcoming, popular, loading, error }) => (
       <Loader></Loader>
     ) : (
       <Container>
-        {nowPlaying && nowPlaying.length > 0 && (
-          <Section title='현재 상영 중인'>
-            {nowPlaying.map((movie) => (
-              <Poster
-                key={movie.id}
-                id={movie.id}
-                imgUrl={movie.poster_path}
-                title={movie.original_title}
-                rating={movie.vote_average}
-                year={movie.release_date && movie.release_date.substring(0, 4)}
-                isMovie={true}
-              ></Poster>
-            ))}
-          </Section>
-        )}
-        {upcoming && upcoming.length > 0 && (
-          <Section title='곧 상영을 시작하는'>
-            {upcoming.map((movie) => (
-              <Poster
-                key={movie.id}
-                id={movie.id}
-                imgUrl={movie.poster_path}
-                title={movie.original_title}
-                rating={movie.vote_average}
-                year={movie.release_date && movie.release_date.substring(0, 4)}
-                isMovie={true}
-              ></Poster>
-            ))}
-          </Section>
-        )}
-        {popular && popular.length > 0 && (
-          <Section title='인기 있는'>
-            {popular.map((movie) => (
+        {category && category.length > 0 && (
+          <Section title={title}>
+            {category.map((movie) => (
               <Poster
                 key={movie.id}
                 id={movie.id}
@@ -71,9 +41,8 @@ const HomePresenter = ({ nowPlaying, upcoming, popular, loading, error }) => (
   </>
 );
 HomePresenter.propTypes = {
-  nowPlaying: PropTypes.array,
-  upcoming: PropTypes.array,
-  popular: PropTypes.array,
+  title: PropTypes.string,
+  category: PropTypes.array,
   loading: PropTypes.bool.isRequired,
   error: PropTypes.string,
 };

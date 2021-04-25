@@ -32,7 +32,7 @@
       "react-app/jest"
     ]
   },
-  "homepage":"https://supinkim.github.io/supflix",
+  "homepage": "https://supinkim.github.io/supflix",
   "browserslist": {
     "production": [
       ">0.2%",
